@@ -16,7 +16,7 @@ vagrant box add centos65-x86_64-20140116 https://github.com/2creatives/vagrant-c
 
 ```
 git clone git@github.com:MammothData/accumulo-vagrant.git
-cd ambari-vagrant
+cd accumulo-vagrant
 vagrant up
 ```
 
