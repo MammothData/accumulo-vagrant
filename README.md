@@ -36,7 +36,8 @@ accumulo shell -u root
 
 ## When things go wrong
 
-# Things you might see:
+### Things you might see:
+
 "message" : "Attempted to add unknown hosts to a cluster.  These hosts have not been registered with the server: ambari"
 
 ```
