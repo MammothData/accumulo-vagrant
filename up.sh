@@ -1,4 +1,4 @@
 #!/bin/bash
 
-vagrant up c6401
+vagrant up ambari
 

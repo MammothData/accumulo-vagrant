@@ -36,8 +36,14 @@ accumulo shell -u root
 
 ## When things go wrong
 
+# Things you might see:
+"message" : "Attempted to add unknown hosts to a cluster.  These hosts have not been registered with the server: ambari"
+
 ```
 AMBARI_URL=192.168.64.101:8080
+
+#Check which hosts are registered:
+curl -Hs "X-Requested-By: ambari" -u admin:admin -i http://$AMBARI_URL/api/v1/hosts
 
 #Delete the blueprint config:
 curl -H "X-Requested-By: ambari" -X DELETE -u admin:admin http://$AMBARI_URL/api/v1/blueprints/single-node-hdfs-yarn

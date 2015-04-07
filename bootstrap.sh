@@ -18,8 +18,17 @@ ambari-server setup -s
 ambari-server start
 
 yum install ambari-agent -y
-sed -i.bak "/^hostname/ s/.*/hostname=c6401.ambari.apache.org/" /etc/ambari-agent/conf/ambari-agent.ini
+sed -i.bak "/^hostname/ s/.*/hostname=ambari/" /etc/ambari-agent/conf/ambari-agent.ini
 ambari-agent start
+
+AMBARI_URL=192.168.64.101:8080
+a=$(curl -s -H "X-Requested-By: ambari" -u admin:admin  http://$AMBARI_URL/api/v1/hosts | jq '.items[0].Hosts.host_name' | grep ambari | wc -l)
+while [ $a -lt 1 ]
+do
+echo $a "Waiting for ambari-agent to register..."
+a=$(curl -s -H "X-Requested-By: ambari" -u admin:admin  http://$AMBARI_URL/api/v1/hosts | jq '.items[0].Hosts.host_name' | grep ambari | wc -l)
+sleep 2
+done
 
 echo "Setting up environment"
 
@@ -45,10 +54,10 @@ sudo chown -R root:root /usr/lib/accumulo
 echo "Configuring Accumulo"
 cp /usr/lib/accumulo/conf/examples/1GB/standalone/* /usr/lib/accumulo/conf/
 cat > /usr/lib/accumulo/conf/masters <<EOF
-c6401.ambari.apache.org
+ambari
 EOF
 cat > /usr/lib/accumulo/conf/slaves <<EOF
-c6401.ambari.apache.org
+ambari
 EOF
 sed -i 's/>secret</>dev</' /usr/lib/accumulo/conf/accumulo-site.xml
 

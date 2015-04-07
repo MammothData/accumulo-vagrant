@@ -70,7 +70,7 @@ curl -H "X-Requested-By: ambari" -u admin:admin http://$AMBARI_URL/api/v1/cluste
       "name" : "host_group_1",    
       "hosts" : [         
         {
-          "fqdn" : "c6401.ambari.apache.org"
+          "fqdn" : "ambari"
         }
       ]
     }
