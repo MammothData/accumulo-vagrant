@@ -59,6 +59,17 @@ EOF
 cat > /usr/lib/accumulo/conf/slaves <<EOF
 ambari
 EOF
+cat > /usr/lib/accumulo/conf/monitor <<EOF
+ambari
+EOF
+cat > /usr/lib/accumulo/conf/tracers <<EOF
+ambari
+EOF
+cat > /usr/lib/accumulo/conf/gc <<EOF
+ambari
+EOF
+
+
 sed -i 's/<!-- HDP 2.0 requirements --><!--/<!-- HDP 2.0 requirements -->/' /usr/lib/accumulo/conf/accumulo-site.xml
 sed -i 's/--><!-- End HDP 2.0 requirements -->/<!-- End HDP 2.0 requirements -->/' /usr/lib/accumulo/conf/accumulo-site.xml
 
