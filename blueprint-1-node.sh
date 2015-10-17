@@ -53,7 +53,7 @@ curl -H "X-Requested-By: ambari" -u admin:admin http://$AMBARI_URL/api/v1/bluepr
   "Blueprints" : {
     "blueprint_name" : "single-node-hdfs-yarn",
     "stack_name" : "HDP",
-    "stack_version" : "2.1"
+    "stack_version" : "2.2"
   }
 }
 EOF
