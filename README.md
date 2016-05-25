@@ -11,6 +11,11 @@ Once installed, you can pre-fetch the referenced Centos 6.5 image:
 vagrant box add centos65-x86_64-20140116 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box
 ```
 
+Project also depends on the Vagrant vbguest plugin
+```
+vagrant plugin install vagrant-vbguest
+```
+
 
 ## Initialize the single node cluster
 
@@ -31,7 +36,7 @@ vagrant ssh
 sudo su
 start-all.sh #this accumulo start script is in your path
 
-accumulo shell -u root
+accumulo shell -u root # password: dev
 ```
 
 ## When things go wrong
